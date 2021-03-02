@@ -30,7 +30,6 @@ module.exports = {
       .setTitle(`MEMBER HAD GOT A COPYRIGHT STRIKE!`)
       .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
       .addField(`COPYRIGHT  MEMBER`, `${Member.user.tag} (${Member.user.id})`)
-      .addField(`Now Member `,)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
