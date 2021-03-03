@@ -4,7 +4,7 @@ const { Color } = require("../../config.js");
 
 module.exports = {
   name: "ping",
-  aliases: [],
+  aliases: ["p"],
   description: "Pong!",
   usage: "Ping",
   run: async (client, message, args) => {
