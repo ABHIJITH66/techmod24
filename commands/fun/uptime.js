@@ -1,8 +1,8 @@
 module.exports = {
   name: "uptime",
-  aliases: ["u"],
+  aliases: ["Uptime"],
   description: "Check the uptime",
-  usage: "Randomnumber",
+  usage: "uptime",
   run: async (client, message, args) => {
     //Start
     message.delete();
