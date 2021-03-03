@@ -13,6 +13,7 @@ client.on("ready", async () => {
     .catch(error => console.log(error));
 });
 
+
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
   if (message.author.bot) return;
