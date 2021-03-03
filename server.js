@@ -34,7 +34,7 @@ modules.forEach(function(module) {
       return new Error(
         "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
       );
-    files.forEach(function(file) {
+      files.forEach(function(file) {
       if (!file.endsWith(".js")) return;
       let command = require(`./commands/${module}/${file}`);
       console.log(`${command.name} Command Has Been Loaded - ✅`);
@@ -82,5 +82,8 @@ client.on("message", async message => {
     `User : ${message.author.tag} (${message.author.id}) Server : ${message.guild.name} (${message.guild.id}) Command : ${command.name}`
   );
 });
+
+
+
 
 client.login(Token);
