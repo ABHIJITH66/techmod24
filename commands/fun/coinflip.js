@@ -10,7 +10,7 @@ module.exports = {
   run: async (client, message, args) => {
     //Start
     message.delete();
-    const coins = ["Heads", "Tails", "Center"];
+    const coins = ["Heads", "Tails"];
 
     let result = Math.floor(Math.random() * coins.length);
 
