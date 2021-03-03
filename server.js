@@ -12,38 +12,6 @@ client.on("ready", async () => {
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
-//level up
-
-const bot = new Discord.Client();
-const Levels = require('discord-xp')
-
-
-    const randomXp = Math.floor(Math.random() * 9) + 1; //Random amont of XP until the number you want + 1
-    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
-    if (hasLeveledUp) {
-        const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
-    }
-    
-    //Rank
-    if(command === "rank") {
-        const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`You are currently level **${user.level}**!`)
-    }
-    
-    //Leaderboard
-    if(command === "leaderboard" || command === "lb") {
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
-        if (rawLeaderboard.length < 1) return("Nobody's in leaderboard yet.");
-
-        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); 
-
-        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
-
-        message.channel.send(`${lb.join("\n\n")}}`)
-    }
-})
-//end
 
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
