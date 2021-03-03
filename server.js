@@ -12,20 +12,6 @@ client.on("ready", async () => {
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
-
-
-client.on("message", async message => {
-  if (message.channel.type === "dm") return;
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
-
-  if (message.content.match(new RegExp(`^<@!?${client.user.id}>`))) {
-    return message.channel.send(`Bot Prefix : ${Prefix}`);
-  }
-});
-
 let modules = ["fun", "info", "moderation"];
 
 modules.forEach(function(module) {
