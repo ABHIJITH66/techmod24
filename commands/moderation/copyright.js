@@ -27,7 +27,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor(Color)
-      .setTitle(`message.autho HAD GOT A COPYRIGHT STRIKE!`)
+      .setTitle(`${Member.user.username} GOT A COPYRIGHT STRIKE!`)
       .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
       .addField(`COPYRIGHT  MEMBER`, `${Member.user.tag} (${Member.user.id})`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)

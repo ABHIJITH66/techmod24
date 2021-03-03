@@ -23,7 +23,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor(Color)
-      .setTitle(`Member Warnings!`)
+      .setTitle(`${Member.user.username} Warnings!`)
       .setDescription(`${Member.user.username} Has ${Warnings || "0"} Warnings!`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();

@@ -32,7 +32,7 @@ module.exports = {
 
     let Embed = new MessageEmbed()
       .setColor(Color)
-      .setTitle(`Member Muted!`)
+      .setTitle(`${Member.user.username} Muted!`)
       .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
       .addField(`Muted Member`, `${Member.user.tag} (${Member.user.id})`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)

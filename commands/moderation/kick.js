@@ -49,7 +49,7 @@ module.exports = {
       }, 2000);
       let embed = new Discord.MessageEmbed()
         .setColor(Color)
-        .setTitle(`Member Kicked!`)
+        .setTitle(`${Member.user.username} Kicked!`)
         .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
         .addField(`Kicked Member`, `${Member.tag} (${Member.id})`)
         .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
