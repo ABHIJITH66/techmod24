@@ -1,6 +1,6 @@
 module.exports = {
   name: "uptime",
-  aliases: ["Uptime"],
+  aliases: ["ut"],
   description: "Check the uptime",
   usage: "uptime",
   run: async (client, message, args) => {

@@ -4,7 +4,7 @@ const { Color } = require("../../config.js");
 
 module.exports = {
   name: "copyright",
-  aliases: [],
+  aliases: ['cr'],
   description: "Warn A User!",
   usage: "copyright <Mention User> | <Reason>",
   run: async (client, message, args) => {

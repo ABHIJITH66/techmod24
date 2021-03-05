@@ -45,7 +45,7 @@ module.exports = {
         .setTimestamp();
       return message.channel
         .send(embed)
-        .then(msg => msg.delete({ timeout: 10 }));
+        .then(msg => msg.delete({ timeout: 0 }));
     });
 
     //End
