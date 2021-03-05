@@ -16,7 +16,7 @@ module.exports = {
       .then(json => {
         let embed = new MessageEmbed()
           .setColor(Color)
-          .setTitle(`${json.title}`)
+          .setTitle(`${json.title}`) 
           .setURL(json.postLink)
           .setImage(json.url)
           .setFooter(`From /r/${json.subreddit}`);
