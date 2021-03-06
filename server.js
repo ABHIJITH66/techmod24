@@ -12,6 +12,15 @@ client.on("ready", async () => {
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
+
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech,Tech")) {
+    message.channel.send("OH OK YOUR SEARCHING FOR PRO");
+  }
+});
+//test
 let modules = ["fun", "info", "moderation"];
 
 modules.forEach(function(module) {
