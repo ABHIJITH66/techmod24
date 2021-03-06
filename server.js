@@ -6,8 +6,6 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
-
-
 client.on("ready", async () => {
   console.log(`ready!`);
   client.user
@@ -18,7 +16,8 @@ let modules = ["fun", "info", "moderation"];
 
 modules.forEach(function(module) {
   fs.readdir(`./commands/${module}`, function(err, files) {
-       return new Error(
+    if (err)
+      return new Error(
         "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
       );
       files.forEach(function(file) {
