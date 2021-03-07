@@ -6,12 +6,16 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
+
 client.on("ready", async () => {
   console.log(`ready!`);
   client.user
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
+
+
+
 
 client.on("message", (message) => {
   if (message.content.startsWith("tech")) {
