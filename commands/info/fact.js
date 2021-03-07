@@ -9,6 +9,7 @@ module.exports = {
   description: "Return A Random Fact!",
   usage: "Fact",
   run: async (client, message, args) => {
+    message.delete();
 
     console.log(client.commands.size)
     

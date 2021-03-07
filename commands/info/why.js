@@ -8,6 +8,7 @@ module.exports = {
   description: "Return A Why!",
   usage: "Why",
   run: async (client, message, args) => {
+    message.delete();
     
     const Data = await api.GetWhy({ Color: "random"});
     return message.channel.send(Data);

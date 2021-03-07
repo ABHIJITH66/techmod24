@@ -8,6 +8,7 @@ module.exports = {
   description: "Return A Answer Of Question!",
   usage: "8ball <Question>",
   run: async (client, message, args) => {
+    message.delete();
     
     const Responses = ["Yes", "No", "Maybe", "Probably", "Not Sure", "Definitely", "Certainly"], Random = Responses[Math.floor(Math.random () * Responses.length)];
     const Question = args.join(" ");

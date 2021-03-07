@@ -8,6 +8,7 @@ module.exports = {
   description: "Return A Random Joke!",
   usage: "Joke",
   run: async (client, message, args) => {
+    message.delete();
     
     const Data = await api.GetJoke({ Color: "RANDOM" });
     return message.channel.send(Data);

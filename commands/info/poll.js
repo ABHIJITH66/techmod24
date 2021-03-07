@@ -9,6 +9,7 @@ module.exports = {
   usage: "Poll <Channel> <Message>",
   run: async (client, message, args) => {
  
+    message.delete();
     const Channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
 
     if (!Channel || Channel.type === "voice") return message.channel.send("Please Mention Or Give ID Of A Valid Text Channel!");
