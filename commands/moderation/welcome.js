@@ -1,10 +1,9 @@
 const discord = require("discord.js");
 const db = require("quick.db");
 const { Color } = require("../../config.js");
-const { relativeTimeThreshold } = require("moment");
-const { createCanvas, loadImage, registerFont } = require("canvas");
 const guildInvites = new Map();
 const path = require("path");
+const { createCanvas, loadImage, registerFont } = require("canvas");
 
 
 module.exports = {
@@ -45,7 +44,7 @@ module.exports = {
           let embed = new discord.MessageEmbed()
             .setColor(Color)
             .setDescription(
-              `❌ This server has a welcome channnel\n**Note:** if u want to turn off use \`${prefix}welcome channel unset\``
+              `❌ This server has a welcome channnel\n**Note:** if u want to turn off use \`welcome channel unset\``
             );
           return message.channel.send(embed);
         }

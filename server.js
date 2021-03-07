@@ -1,7 +1,11 @@
-const Discord = require("discord.js");
+
 const fs = require("fs");
-const client = new Discord.Client();
-const { Prefix, Token, Color } = require("./config.js");
+const { Client, Collection } = require("discord.js");
+const { config } = require("dotenv");
+const client = new Client({
+  disableEveryone: true
+
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.db = require("quick.db");
@@ -13,6 +17,17 @@ client.on("ready", async () => {
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
+//WELCOME
+const { createCanvas, loadImage, registerFont } = require("canvas");
+//--------MUSIC - CLIENT------
+const { Player } = require('discord-player');
+client.play = new Player(client);
+
+//-----database-------
+const db = require("quick.db");
+client.commands = new Collection();
+client.aliases = new Collection();
+client.queue = new Map();
 
 //test
 module.exports = async (client) =>{
