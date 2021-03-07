@@ -8,7 +8,7 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 
-client.n("ready", async () => {
+client.on("ready", async () => {
   console.log(`ready!`);
   client.user
     .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
@@ -80,7 +80,31 @@ client.on("message", (message) => {
 
 
 
+//welcome
+bot.on("guildMemberAdd", async (member) => {
+  
+  let guild = bot.guilds.cache.get(""); //--- Channel ID
+  let channel = bot.channels.cache.get(""); //--- Server ID
+  let emoji = member.guild.emojis.cache.find(emoji => emoji.name === 'randomIdk'); //--- Custom Server Emoji (Emoji Name)
+  
+  if (guild != member.guild) {
+    return console.log('Welcome to random'); //--- Welcome message
+  } else {
+    
+    .setColor(Color)
+    .setAuthor(member.user.tag, member.user.displayAvatarURL())
+    .setTitle(`${emoji} Welcome To The Hamster Cult! ${emoji}`) //--- Welcome Message
+    .setImage('https://animystic.com.br/wp-content/uploads/2019/09/giphy2.gif') --- Giph/Image (Can be customized)
+    .setDescription(`${member.user}, welcome to ${guild.name}! You're our ${member.guild.memberCount} member.`) //--- Member's position rank join
+    .setThumbnail(member.user.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
+    .setFooter('User ID: ' + member.user.id)
+    .setTimestamp();
+    
+    await channel.send(embed)
+  }
+})
 
+//Welcome & goodbye messages end\\
 
 //test
 let modules = ["fun", "info", "moderation"];
