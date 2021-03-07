@@ -13,11 +13,11 @@ client.on("ready", () => {
 let rstatus = Math.floor(Math.random() * status.length);
 
 client.user.setActivity(status[rstatus], {type: "PLAYING" });
-};
-setInterval(randomStatus, 30000)
+}; setInterval(randomStatus, 30000)
 
 console.log('Ready for playing music')
-});
+})
+
 //test
 module.exports = async (client) =>{
 
@@ -33,7 +33,7 @@ module.exports = async (client) =>{
 
         console.log('Updating Member Count');
 
-    }, 10);
+    }, 5000);
 
 }
 //hello
