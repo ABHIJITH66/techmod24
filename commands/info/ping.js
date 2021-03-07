@@ -4,21 +4,9 @@ const { Color } = require("../../config.js");
 
 module.exports = {
   name: "ping",
-  aliases: ["p"],
-  description: "Pong!",
-  usage: "Ping",
-  run: async (client, message, args) => {
-    //Start
-    message.delete();
-
-    const embed = new MessageEmbed()
-      .setColor(Color)
-      .setDescription(`Pong - ${client.ws.ping}`)
-      .setFooter(`Requested By ${message.author.username}`)
-      .setTimestamp();
-
-    message.channel.send(embed);
-
-    //End
+  cooldown: 10,
+  description: "Show the bot's average ping",
+  execute(message) {
+    message.reply(`📈 Average ping to API: ${Math.round(message.client.ws.ping)} ms`).catch(console.error);
   }
 };
