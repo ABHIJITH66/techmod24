@@ -17,11 +17,70 @@ client.on("ready", async () => {
 
 
 
+
+client.on("message", (message) => {
+  if (message.content.startsWith("Tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
 client.on("message", (message) => {
   if (message.content.startsWith("tech")) {
     message.channel.send("THAT MEANS PRO!");
   }
 });
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("nanda",)) {
+    message.channel.send("THAT MEANS NOOB!");
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("bot")) {
+    message.channel.send('OK YOU CAN SEARCH THIS ID @crazyboi#0897');
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
+client.on("message", (message) => {
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
+  }
+});
+
+
 //test
 let modules = ["fun", "info", "moderation"];
 
