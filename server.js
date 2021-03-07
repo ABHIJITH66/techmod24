@@ -13,7 +13,7 @@ client.on("ready", () => {
             name: 'USE  =help  FOR HELP',
             type: 'WATCHING'
         },
-        status: 'invisble'
+        status: 'Online'
     })
 })
 
@@ -127,4 +127,4 @@ client.on("message", async message => {
 
 
 
-client.login();
+client.login(Token);
