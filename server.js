@@ -7,23 +7,43 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 
-client.n("ready", () => {
-    client.user.setPresence({
-        activity: { 
-            name: 'USE  =help  FOR HELP',
-            type: 'PLAYING'
-        },
-        status: 'offline'
-    });
+client.on("ready", () => {
+   function randomStatus() {
+ let status = ["TECH TIPS BY ABHIJITH", "=help"]
+let rstatus = Math.floor(Math.random() * status.length);
+
+client.user.setActivity(status[rstatus], {type: "PLAYING" });
+}; setInterval(randomStatus, 30000)
+
+console.log('Ready for playing music')
 })
 
+//test
+module.exports = async (client) =>{
+
+    const guild = 800306515553943582;
+
+    setInterval(() =>{
+
+        const memberCount = guild.memberCount;
+
+        const channel = guild.channels.cache.get('818135844753899592');
+
+        channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
+
+        console.log('Updating Member Count');
+
+    }, 5000);
+
+}
+//hello
 
 
 client.on("message", (message) => {
   
   if (message.content.startsWith("Tech")) {
     message.channel.send("THAT MEANS PRO!");
-  }
+  };
 });
 
 
@@ -31,7 +51,7 @@ client.on("message", (message) => {
     
   if (message.content.startsWith("tech")) {
     message.channel.send("THAT MEANS PRO!");
-  }
+  };
 });
 
 
