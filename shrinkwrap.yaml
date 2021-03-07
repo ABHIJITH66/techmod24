@@ -7,6 +7,7 @@ dependencies:
   node-fetch: 2.6.1
   novelcovid: 3.0.0
   quick.db: 7.1.1
+  srod-v2: 1.0.2
   util: 0.12.3
   weather-js: 2.0.0
 packages:
@@ -1237,6 +1238,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bCR6cP+aTdScaQCnQKbPKtJOKDp/hj9EDLJo3Nw4y1QksqaovlW/bnptB6/c1e+qmNIDHRK+oXFDdEqBT8WzUA==
+  /srod-v2/1.0.2:
+    dependencies:
+      node-fetch: 2.6.1
+    dev: false
+    resolution:
+      integrity: sha512-bF871tXYNMYoxn74aQaZr2/aheLtzJTRDjBA4hT2ZWPkWM3DBfKmGGlmFdLsR7gmb32YDDVHJOniL36WdSp3wQ==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -1528,5 +1535,6 @@ specifiers:
   node-fetch: ^2.6.1
   novelcovid: ^3.0.0
   quick.db: ^7.1.1
+  srod-v2: ^1.0.2
   util: ^0.12.3
   weather-js: ^2.0.0
