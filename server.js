@@ -7,16 +7,12 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 
-client.on("ready", () => {
-   function randomStatus() {
- let status = ["TECH TIPS BY ABHIJITH", "=help"]
-let rstatus = Math.floor(Math.random() * status.length);
-
-client.user.setActivity(status[rstatus], {type: "PLAYING" });
-}; setInterval(randomStatus, 30000)
-
-console.log('Ready for playing music')
-})
+client.on("ready", async () => {
+  console.log(`ready!`);
+  client.user
+    .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
+    .catch(error => console.log(error));
+});
 
 //test
 module.exports = async (client) =>{
