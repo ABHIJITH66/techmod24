@@ -7,14 +7,14 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 
-client.on("ready", () => {
+client.n("ready", () => {
     client.user.setPresence({
         activity: { 
             name: 'USE  =help  FOR HELP',
-            type: 'WATCHING'
+            type: 'PLAYING'
         },
-        status: 'Online'
-    })
+        status: 'offline'
+    });
 })
 
 
@@ -38,26 +38,26 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if (message.content.startsWith("nanda",)) {
     message.channel.send("THAT MEANS NOOB!");
-  }
+  };
 });
 
 client.on("message", (message) => {
   if (message.content.startsWith("Nanda",)) {
     message.channel.send("THAT MEANS NOOB!");
-  }
+  };
 });
 
 client.on("message", (message) => {
   if (message.content.startsWith("bot")) {
     message.channel.send('OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
-  }
+  };
 });
 
 
 client.on("message", (message) => {
   if (message.content.startsWith("noob")) {
     message.channel.send("OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
-  }
+  };
 });
 
 
