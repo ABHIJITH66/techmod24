@@ -1,4 +1,14 @@
 @client.event
+
+module.exports = {
+  name: "rank",
+  aliases: ["rank", "push"],
+  description: "rank",
+  usage: "rank",
+  run: async () => {
+    //Start
+    message.delete();
+    
 async def on_message(message):
     if not message.author.bot:
         print('function load')
@@ -39,10 +49,6 @@ async def level_up(users, user, channel, server):
   if lvl_start < lvl_end:
       await channel.send('{} has leveled up to Level {}'.format(user.mention, lvl_end))
       users[str(user.guild.id)][str(user.id)]['level'] = lvl_end
-
-
-@client.command(aliases = ['rank','lv1'])
-async def level(ctx,member: discord.Member = None):
 
     if not member:
         user = ctx.message.author

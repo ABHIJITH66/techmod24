@@ -18,7 +18,9 @@ client.on("ready", () => {
 })
 
 
+
 client.on("message", (message) => {
+  
   if (message.content.startsWith("Tech")) {
     message.channel.send("THAT MEANS PRO!");
   }
@@ -26,6 +28,7 @@ client.on("message", (message) => {
 
 
 client.on("message", (message) => {
+    
   if (message.content.startsWith("tech")) {
     message.channel.send("THAT MEANS PRO!");
   }
