@@ -49,14 +49,14 @@ client.on("message", (message) => {
 
 client.on("message", (message) => {
   if (message.content.startsWith("bot")) {
-    message.channel.send('OK YOU CAN SEARCH THIS N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
+    message.channel.send('OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
   }
 });
 
 
 client.on("message", (message) => {
   if (message.content.startsWith("noob")) {
-    message.channel.send("OK YOU CAN SEARCH THIS N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
+    message.channel.send("OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
   }
 });
 
@@ -74,7 +74,7 @@ modules.forEach(function(module) {
         "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
       );
       files.forEach(function(file) {
-      if (!file.endsWith(".js")) return;
+      if (!file.endsWith('.js,.py')) return;
       let command = require(`./commands/${module}/${file}`);
       console.log(`${command.name} Command Has Been Loaded - ✅`);
       if (command.name) client.commands.set(command.name, command);

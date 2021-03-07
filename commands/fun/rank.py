@@ -6,7 +6,7 @@ module.exports = {
   description: "rank",
   usage: "rank",
   run: async () => {
-    //Start
+    
     message.delete();
     
 async def on_message(message):
