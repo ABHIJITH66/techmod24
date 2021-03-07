@@ -13,11 +13,9 @@ client.on("ready", async () => {
     .catch(error => console.log(error));
 });
 
-
-
 client.on("message", (message) => {
-  if (message.content.startsWith("tech,Tech")) {
-    message.channel.send("OH OK YOUR SEARCHING FOR PRO");
+  if (message.content.startsWith("tech")) {
+    message.channel.send("THAT MEANS PRO!");
   }
 });
 //test
