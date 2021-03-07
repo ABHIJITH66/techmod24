@@ -7,15 +7,15 @@ client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 
 
-client.on("ready", async () => {
-  console.log(`ready!`);
-  client.user
-    .setActivity(`USE =help FOR HELP`, { type: "PLAYING" })
-    .catch(error => console.log(error));
-});
-
-
-
+client.on("ready", () => {
+    client.user.setPresence({
+        activity: { 
+            name: 'USE  =help  FOR HELP',
+            type: 'WATCHING'
+        },
+        status: 'invisble'
+    })
+})
 
 
 client.on("message", (message) => {
@@ -41,44 +41,19 @@ client.on("message", (message) => {
 
 client.on("message", (message) => {
   if (message.content.startsWith("bot")) {
-    message.channel.send('OK YOU CAN SEARCH THIS ID @crazyboi#0897');
+    message.channel.send('OK YOU CAN SEARCH THIS N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
   }
 });
 
 
 client.on("message", (message) => {
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
+  if (message.content.startsWith("noob")) {
+    message.channel.send("OK YOU CAN SEARCH THIS N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
   }
 });
 
 
-client.on("message", (message) => {
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  }
-});
 
-
-client.on("message", (message) => {
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  }
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  }
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  }
-});
 
 
 //test
