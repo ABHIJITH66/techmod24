@@ -38,6 +38,11 @@ client.on("message", (message) => {
   }
 });
 
+client.on("message", (message) => {
+  if (message.content.startsWith("Nanda",)) {
+    message.channel.send("THAT MEANS NOOB!");
+  }
+});
 
 client.on("message", (message) => {
   if (message.content.startsWith("bot")) {
