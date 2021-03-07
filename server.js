@@ -74,7 +74,8 @@ modules.forEach(function(module) {
         "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
       );
       files.forEach(function(file) {
-      if (!file.endsWith('.js,.py')) return;
+      if (!file.endsWith(".js")) return;
+      
       let command = require(`./commands/${module}/${file}`);
       console.log(`${command.name} Command Has Been Loaded - ✅`);
       if (command.name) client.commands.set(command.name, command);
@@ -87,6 +88,7 @@ modules.forEach(function(module) {
     });
   });
 });
+
 
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
@@ -125,4 +127,4 @@ client.on("message", async message => {
 
 
 
-client.login(Token);
+client.login();
