@@ -9,7 +9,8 @@ module.exports = {
   description: "Make URL Short!",
   usage: "Shorturl <Link> | <Aliase>",
   run: async (client, message, args) => {
-    
+    message.delete();
+
     if (!args[0] || !args[0].startsWith("http")) return message.channel.send("Please Give A Valid Link!");
 
     async function ShortLink(Type, Link, Aliase) {
