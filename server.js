@@ -16,24 +16,8 @@ client.on("ready", async () => {
 });
 
 
-//test
-module.exports = async (client) =>{
+// hi
 
-    const guild = 800306515553943582;
-
-    setInterval(() =>{
-
-        const memberCount = guild.memberCount;
-
-        const channel = guild.channels.cache.get('818135844753899592');
-
-        channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
-
-        console.log('Updating Member Count');
-
-    }, 5000);
-
-}
 //hello
 
 
