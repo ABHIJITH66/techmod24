@@ -11,6 +11,7 @@ dependencies:
   tinyurl: 1.1.7
   util: 0.12.3
   weather-js: 2.0.0
+  youtube-notification: 1.1.0
   yt-search: 2.7.3
   ytdl-core: 4.5.0
 packages:
@@ -182,6 +183,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
+  /axios/0.19.2:
+    dependencies:
+      follow-redirects: 1.5.10
+    deprecated: 'Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410'
+    dev: false
+    resolution:
+      integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   /balanced-match/1.0.0:
     dev: false
     resolution:
@@ -395,6 +403,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
+  /debug/3.1.0:
+    dependencies:
+      ms: 2.0.0
+    dev: false
+    resolution:
+      integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
   /decompress-response/4.2.1:
     dependencies:
       mimic-response: 2.1.0
@@ -453,7 +467,7 @@ packages:
       prism-media: 1.2.7
       setimmediate: 1.0.5
       tweetnacl: 1.0.3
-      ws: 7.4.3
+      ws: 7.4.4
     dev: false
     engines:
       node: '>=12.0.0'
@@ -731,6 +745,14 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.5.10:
+    dependencies:
+      debug: 3.1.0
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   /foreach/2.0.5:
     dev: false
     resolution:
@@ -1909,7 +1931,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-  /ws/7.4.3:
+  /ws/7.4.4:
     dev: false
     engines:
       node: '>=8.3.0'
@@ -1917,7 +1939,7 @@ packages:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2
     resolution:
-      integrity: sha512-hr6vCR76GsossIRsr8OLR9acVVm1jyfEWvhbNjtgPOrfvAlKzvyeg/P6r8RuDjRyrcQoPQT7K0DGEPc7Ae6jzA==
+      integrity: sha512-Qm8k8ojNQIMx7S+Zp8u/uHOx7Qazv3Yv4q68MiWWWOJhiwG5W3x7iqmRtJo8xxrciZUY4vRxUTJCKuRnF28ZZw==
   /xml2js/0.4.23:
     dependencies:
       sax: 1.2.4
@@ -1937,6 +1959,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
+  /youtube-notification/1.1.0:
+    dependencies:
+      axios: 0.19.2
+      express: 4.17.1
+      xml2js: 0.4.23
+    dev: false
+    resolution:
+      integrity: sha512-0v2lQqLWrKK1p6hSiWwGRcBxiEsczrqpam7fhNgSfskHERXSG8HYZrkk7MY+0SabKPV9bROZabCAyOtSqgkiYA==
   /yt-search/2.7.3:
     dependencies:
       async.parallellimit: 0.5.2
@@ -1965,7 +1995,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  discord.js: ^12.5.1
+  discord.js: ^12.2.0
   express: ^4.17.1
   figlet: ^1.5.0
   fs: ^0.0.2
@@ -1977,5 +2007,6 @@ specifiers:
   tinyurl: ^1.1.7
   util: ^0.12.3
   weather-js: ^2.0.0
+  youtube-notification: ^1.1.0
   yt-search: ^2.7.1
   ytdl-core: ^4.4.5
