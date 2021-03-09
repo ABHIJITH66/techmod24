@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "poll",
-  aliases: ["pll"],
+  aliases: ["p"],
   category: "Moderation",
   description: "Create A Fresh Poll!",
   usage: "Poll <Channel> <Message>",
