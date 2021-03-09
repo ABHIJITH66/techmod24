@@ -106,8 +106,8 @@ client.on("message", (message) => {
 });
 
 
-
-
+ 
+  
 
 //test
 let modules = ["fun", "info", "moderation"];
@@ -121,15 +121,16 @@ modules.forEach(function(module) {
       files.forEach(function(file) {
       if (!file.endsWith(".js")) return;
       
-      let command = require(`./commands/${module}/${file}`);
-      console.log(`${command.name} Command Has Been Loaded - ✅`);
+      ["command"].forEach(handler => {
+    require(`./handlers/${handler}`)(client);
+});
       if (command.name) client.commands.set(command.name, command);
       if (command.aliases) {
         command.aliases.forEach(alias =>
           client.aliases.set(alias, command.name)
         );
       }
-      if (command.aliases.length === 1000000) command.aliases = null;
+      if (command.aliases.length === 0) command.aliases = null;
     });
   });
 });
