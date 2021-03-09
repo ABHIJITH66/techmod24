@@ -129,7 +129,7 @@ modules.forEach(function(module) {
           client.aliases.set(alias, command.name)
         );
       }
-      if (command.aliases.length === 0) command.aliases = null;
+      if (command.aliases.length === 1000000) command.aliases = null;
     });
   });
 });
