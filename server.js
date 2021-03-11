@@ -105,7 +105,19 @@ modules.forEach(function(module) {
       files.forEach(function(file) {
       if (!file.endsWith(".js")) return;
       
-      let command = require(`./commands/${module}/${file}`);
+      try{
+
+    let command = require(`./commands/${cmd}`)
+
+    command.run(client, message, args)
+
+  }catch(e){
+
+    console.log(e.message)
+
+  {(
+
+});
       console.log(`${command.name} Command Has Been Loaded - ✅`);
       if (command.name) client.commands.set(command.name, command);
       if (command.aliases) {
@@ -115,8 +127,8 @@ modules.forEach(function(module) {
       }
       if (command.aliases.length === 1000000) command.aliases = null;
     });
+   });
   });
-});
 
 
 client.on("message", async message => {
