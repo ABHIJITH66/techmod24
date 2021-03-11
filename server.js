@@ -20,15 +20,15 @@ client.on("ready", async () => {
 
 //hhhhiii
 
-  let embed = new Discord.MessageEmbed()
+  {let embed = new Discord.MessageEmbed()
   .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({dynamic:true}))
-  .addField('Username:', member.user.tag)
+  .addField('UsernUsernameame:', member.user.tag)
   .addField('Account created', member.user.createdAt)
   .setColor('random')
   .addField('Position', member.guild.memberCount + ' Members')
-  ch.send(embed)
-  
-});
+( ch.send(embed)
+
+
 
 client.on("message", (message) => {
   
