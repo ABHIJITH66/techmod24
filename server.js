@@ -27,8 +27,8 @@ client.on("ready", async () => {
   .setColor('random')
   .addField('Position', member.guild.memberCount + ' Members')
   ch.send(embed)
-  
-});
+
+
 
 client.on("message", (message) => {
   
