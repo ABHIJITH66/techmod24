@@ -18,36 +18,18 @@ client.on("ready", async () => {
 });
 
 
-//hi
-client.on('guildMemberAdd',  (member) => {
-
-  
-
-  let ch1 = db.get(`channel-${member.guild.id}`);
-
-  let ch = client.channels.cache.get(ch1);
-
-  
+//hhhhiii
 
   let embed = new Discord.MessageEmbed()
-
   .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({dynamic:true}))
-
   .addField('Username:', member.user.tag)
-
   .addField('Account created', member.user.createdAt)
-
   .setColor('random')
-
   .addField('Position', member.guild.memberCount + ' Members')
-
   ch.send(embed)
-
   
-
 });
 
-//
 client.on("message", (message) => {
   
   if (message.content.startsWith("Tech")) {
@@ -105,19 +87,7 @@ modules.forEach(function(module) {
       files.forEach(function(file) {
       if (!file.endsWith(".js")) return;
       
-      try{
-
-    let command = require(`./commands/${cmd}`)
-
-    command.run(client, message, args)
-
-  }catch(e){
-
-    console.log(e.message)
-
-  {(
-
-});
+      let command = require(`./commands/${module}/${file}`);
       console.log(`${command.name} Command Has Been Loaded - ✅`);
       if (command.name) client.commands.set(command.name, command);
       if (command.aliases) {
@@ -127,8 +97,8 @@ modules.forEach(function(module) {
       }
       if (command.aliases.length === 1000000) command.aliases = null;
     });
-   });
   });
+});
 
 
 client.on("message", async message => {
