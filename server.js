@@ -10,6 +10,8 @@ const moment = require("moment")
 const db = require("quick.db")
 
 
+
+
 client.on("ready", async () => {
   console.log(`ready!`);
   client.user
