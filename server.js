@@ -90,7 +90,11 @@ client.on("message", (message) => {
 });
 
 
-
+client.on("message", (message) => {
+  if (message.content.startsWith("insta")) {
+    message.channel.send("https://www.instagram.com/abhijith.k.s3/ ");
+  };
+});
 
 
 //test
