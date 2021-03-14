@@ -57,6 +57,12 @@ client.on("message", (message) => {
   };
 });
 
+client.on("message", (message) => {
+  
+  if (message.content.startsWith("pro")) {
+    message.channel.send("THE ONWER OF THIS SERVER");
+  };
+});
 
 client.on("message", (message) => {
     
