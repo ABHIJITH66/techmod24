@@ -7,7 +7,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 const moment = require("moment")
-const db = require("quick.db")
+const { Client, Collection } = require("discord.js");
 
 
 
@@ -21,33 +21,15 @@ client.on("ready", async () => {
 
 
 //hi
-client.on('guildMemberAdd',  (member) => {
+//--------WELCOME---------
+const { createCanvas, loadImage, registerFont } = require("canvas");
 
-  
+//-----database-------
+const db = require("quick.db");
+client.commands = new Collection();
+client.aliases = new Collection();
+client.queue = new Map();
 
-  let ch1 = db.get(`channel-${member.guild.id}`);
-
-  let ch = client.channels.cache.get(ch1);
-
-  
-
-  let embed = new Discord.MessageEmbed()
-
-  .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({dynamic:true}))
-
-  .addField('Username:', member.user.tag)
-
-  .addField('Account created', member.user.createdAt)
-
-  .setColor('random')
-
-  .addField('Position', member.guild.memberCount + ' Members')
-
-  ch.send(embed)
-
-  
-
-});
 
 //
 client.on("message", (message) => {
