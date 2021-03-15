@@ -30,7 +30,7 @@ module.exports = {
       .addField(`Humans Count`, Humans, true)
       .addField(`Bots Count`, Bots, true)
       .addField(`Server Created At`, guild.createdAt.toDateString())
-      .setFooter(`Requested by ${message.author.username}`)
+      .setFooter(` Requested by ${message.author.username}`)
       .setTimestamp();
 
     message.channel.send(embed);
