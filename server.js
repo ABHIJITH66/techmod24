@@ -7,7 +7,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.db = require("quick.db");
 const moment = require("moment")
-const { Client, Collection } = require("discord.js");
+const db = require("quick.db")
 
 
 
@@ -21,97 +21,54 @@ client.on("ready", async () => {
 
 
 //hi
-//--------WELCOME---------
-const { createCanvas, loadImage, registerFont } = require("canvas");
+client.on('guildMemberAdd',  (member) => {
 
-//-----database-------
-const db = require("quick.db");
-client.commands = new Collection();
-client.aliases = new Collection();
-client.queue = new Map();
+  
 
+  let ch1 = db.get(`channel-${member.guild.id}`);
+
+  let ch = client.channels.cache.get(ch1);
+
+  
+
+  let embed = new Discord.MessageEmbed()
+
+  .setAuthor(`Welcome to ${member.guild.name}`, member.guild.iconURL({dynamic:true}))
+
+  .addField('Username:', member.user.tag)
+
+  .addField('Account created', member.user.createdAt)
+
+  .setColor('random')
+
+  .addField('Position', member.guild.memberCount + ' Members')
+
+  ch.send(embed)
+
+  
+
+});
 
 //
-client.on("message", (message) => {
-  
-  if (message.content.startsWith("Tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  };
-});
-
-client.on("message", (message) => {
-  
-  if (message.content.startsWith("pro")) {
-    message.channel.send("THE ONWER OF THIS SERVER");
-  };
-});
-
-client.on("message", (message) => {
-    
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("nanda",)) {
-    message.channel.send("THAT MEANS NOOB!");
-  };
-});
-
-client.on("message", (message) => {
-  if (message.content.startsWith("Nanda",)) {
-    message.channel.send("THAT MEANS NOOB!");
-  };
-});
-
-client.on("message", (message) => {
-  if (message.content.startsWith("bot")) {
-    message.channel.send('OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("noob")) {
-    message.channel.send("OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("insta")) {
-    message.channel.send("https://www.instagram.com/abhijith.k.s3/ ");
-  };
-});
 
 
 //test
 let modules = ["fun", "info", "moderation"];
 
-modules.forEach(function(module) {
-  fs.readdir(`./commands/${module}`, function(err, files) {
-    if (err)
-      return new Error(
-        "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
-      );
-      files.forEach(function(file) {
-      if (!file.endsWith(".js")) return;
-      
-      let command = require(`./commands/${module}/${file}`);
-      console.log(`${command.name} Command Has Been Loaded - ✅`);
-      if (command.name) client.commands.set(command.name, command);
-      if (command.aliases) {
-        command.aliases.forEach(alias =>
-          client.aliases.set(alias, command.name)
-        );
-      }
-      if (command.aliases.length === 1000000) command.aliases = null;
-    });
-  });
+
+
+["command"].forEach(handler => {
+  require(`./handlers/${handler}`)(client);
 });
 
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
+
+
+for (const file of player) {
+    //console.log(`Loading discord-player event ${file}`);
+    const event = require(`./player/${file}`);
+    client.player.on(file.split(".")[0], event.bind(null, client));
+};
 
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
