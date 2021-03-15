@@ -53,12 +53,12 @@ client.on('guildMemberAdd',  (member) => {
 
 
 //test
-let modules = ["fun", "info", "moderation"];
+let modules = ["fun", "info", "moderation",'handler'];
 
 
 
-["command"].forEach(handler => {
-  require(`./handlers/${handler}`)(client);
+["command.js"].forEach(info => {
+  require(`./info/${info}`)(client);
 });
 
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
