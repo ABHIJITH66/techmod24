@@ -57,7 +57,11 @@ let modules = ["fun", "info", "moderation"];
 
 
 
+["command"].forEach(handler => {
+  require(`./handlers/${handler}`)(client);
+});
 
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
 
 
 for (const file of player) {
@@ -65,7 +69,6 @@ for (const file of player) {
     const event = require(`./player/${file}`);
     client.player.on(file.split(".")[0], event.bind(null, client));
 };
-
 
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
