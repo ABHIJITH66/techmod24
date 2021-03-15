@@ -50,85 +50,21 @@ client.on('guildMemberAdd',  (member) => {
 });
 
 //
-client.on("message", (message) => {
-  
-  if (message.content.startsWith("Tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  };
-});
-
-client.on("message", (message) => {
-  
-  if (message.content.startsWith("pro")) {
-    message.channel.send("THE ONWER OF THIS SERVER");
-  };
-});
-
-client.on("message", (message) => {
-    
-  if (message.content.startsWith("tech")) {
-    message.channel.send("THAT MEANS PRO!");
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("nanda",)) {
-    message.channel.send("THAT MEANS NOOB!");
-  };
-});
-
-client.on("message", (message) => {
-  if (message.content.startsWith("Nanda",)) {
-    message.channel.send("THAT MEANS NOOB!");
-  };
-});
-
-client.on("message", (message) => {
-  if (message.content.startsWith("bot")) {
-    message.channel.send('OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server');
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("noob")) {
-    message.channel.send("OK YOU CAN SEARCH N̷A̷N̷D̷A ̷S̷E̷T̷T̷A̷N on the server");
-  };
-});
-
-
-client.on("message", (message) => {
-  if (message.content.startsWith("insta")) {
-    message.channel.send("https://www.instagram.com/abhijith.k.s3/ ");
-  };
-});
 
 
 //test
 let modules = ["fun", "info", "moderation"];
 
-modules.forEach(function(module) {
-  fs.readdir(`./commands/${module}`, function(err, files) {
-    if (err)
-      return new Error(
-        "Missing Folder Of Commands! Example : Commands/<Folder>/<Command>.js"
-      );
-      files.forEach(function(file) {
-      if (!file.endsWith(".js")) return;
-      
-      let command = require(`./commands/${module}/${file}`);
-      console.log(`${command.name} Command Has Been Loaded - ✅`);
-      if (command.name) client.commands.set(command.name, command);
-      if (command.aliases) {
-        command.aliases.forEach(alias =>
-          client.aliases.set(alias, command.name)
-        );
-      }
-      if (command.aliases.length === 1000000) command.aliases = null;
-    });
-  });
-});
+
+
+
+
+
+for (const file of player) {
+    //console.log(`Loading discord-player event ${file}`);
+    const event = require(`./player/${file}`);
+    client.player.on(file.split(".")[0], event.bind(null, client));
+};
 
 
 client.on("message", async message => {
