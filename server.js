@@ -21,6 +21,67 @@ client.on("ready", async () => {
 
 
 //hi
+const Discord = require("discord.js")
+module.exports = {
+name: "set-welcome-channel",
+run: async (client, message, args, db) => {
+  if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(":x: | **You Cannot Use This Command!**")
+  let channel = message.mentions.channels.first()
+  if (!channel) return message.channel.send(":x: | **mention The channel**")
+  db.set(`joinChannel_${message.guild.id}`, channel.id)
+  let embed = new Discord.MessageEmbed()
+  .setTitle("Welcome channel Set!")
+  .setDescription("The welcome channel has Been set")
+  .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+  .setTimestamp()
+  .setFooter(message.guild.name + " | made by LΣGΣПD#0001", message.guild.iconURL())
+  .setThumbnail(message.guild.iconURL())
+  .setColor("GREEN")
+  .addField("Channel", channel.toString())
+  message.channel.send({embed:embed})
+}
+}
+
+client.on("guildMemberAdd", async member => {
+  if (member.user.bot) return;
+  let user = member.user
+  let channelID = db.get(`joinChannel_${member.guild.id}`)
+ if (channelID === null) return;
+ let channel = member.guild.channels.cache.get(channelID)
+ if (!channel) return;
+  let joinMsg = db.get(`joinmsg_${member.guild.id}`)
+  if (!joinMsg) return;
+  let send = joinMsg
+ .split("{member-mention}").join("<@" + user.id + ">")
+ .split("{member-tag}").join(user.tag)
+ .split("{member-username}").join(user.username)
+ .split("{member-id}").join(user.id)
+ .split("{member-created:duration}").join(moment(user.createdTimestamp).fromNow())
+ .split("{member-created:date}").join(moment(user.createdTimestamp).format("YYYY/MM/DD"))
+ .split("{server-name}").join(member.guild.name)
+ .split("{server-memberCount}").join(member.guild.members.cache.size)
+ channel.send(send)
+})
+client.on("guildMemberRemove", async member => {
+ if (member.user.bot) return;
+ let user = member.user
+ let channelID = db.get(`leaveChannel_${member.guild.id}`)
+ if (channelID === null) return;
+ let channel = member.guild.channels.cache.get(channelID)
+ if (!channel) return;
+ let leaveMsg = db.get(`leavemsg_${member.guild.id}`)
+ if (leaveMsg === null) return;
+ let send = leaveMsg
+ .split("{member-tag}").join(user.tag)
+ .split("{member-username}").join(user.username)
+ .split("{member-id}").join(user.id)
+ .split("{member-created:duration}").join(moment(user.createdTimestamp).fromNow())
+ .split("{member-created:date}").join(moment(user.createdTimestamp).format("YYYY/MM/DD"))
+ .split("{server-name}").join(member.guild.name)
+ .split("{server-memberCount}").join(member.guild.members.cache.size)
+ channel.send(send)
+})
+
 
 //
 client.on("message", (message) => {
